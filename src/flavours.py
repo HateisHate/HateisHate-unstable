@@ -25,8 +25,18 @@ preconditions: @param tweet is the text of a hateful message
 postconditions: returns tweet converted to unflavoured hate
 '''
 def unflavour(tweet):
-	flavour = determine_flavour(tweet)
-	#@todo implement this
+	flavours = determine_flavours(tweet)
+	flav_i = 0
+	for flavour in flavours:
+		slur_i = 0
+		for slur in d[flavour]:
+			if slur == '': #for some reason d[flavour] had lots of empty strings
+				continue
+			tweet =tweet.replace(slur,"[flavour:{},slur:{}]".format(slur_i,flav_i))
+			slur_i = slur_i + 1
+		flav_i = flav_i + 1
+	return tweet
+	
 
 
 '''

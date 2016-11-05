@@ -4,11 +4,12 @@ Don't call people any of these words, it's not nice.
 This list is incomplete, contributions are welcome.
 '''
 
-HATEDICT = {"sexism_misogyny" : ["maid",
+HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right, could also refer to hispanics
 								"slut",
 								"whore",
 								"bitch",
-								"cumslut" #slut is in cumslut, might be redundant
+								"cunt"
+								#"cumslut" #slut is in cumslut, might be redundant
 				],
 			"sexism_misandry" : ["no balls",
 								"pussy"
@@ -19,11 +20,12 @@ HATEDICT = {"sexism_misogyny" : ["maid",
 								"vanilla"
 				],
 			"sexism_homophobia" : ["fairy",
-								"faggot"
+								"faggot",
+								"dyke"
 				],
 			"racism_asain" : ["chink",
 								"squinty",
-								"kimcho",
+								"kimchi",
 								"curry-muncher",#just curry?
 								"ching-chong",#ching.chong so it matches space or hyphen?
 								"gook",
