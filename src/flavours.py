@@ -32,7 +32,7 @@ def unflavour(tweet):
 		for slur in d[flavour]:
 			if slur == '': #for some reason d[flavour] had lots of empty strings
 				continue
-			tweet =tweet.replace(slur,"[flavour:{},slur:{}]".format(slur_i,flav_i))
+			tweet = tweet.replace(slur,"[flavour:{},slur:{}]".format(slur_i,flav_i))
 			slur_i = slur_i + 1
 		flav_i = flav_i + 1
 	return tweet
@@ -45,12 +45,16 @@ preconditions: @param tweet is the text of an unflavoured hateful message
 postconditions: returns the tweet converted to be hateful containing random slurs that are offensive to random
 '''
 def flavourize(tweet, notused=None):
-	pass #@todo implement this
+	#determine the number of flavours which need to be used
+	#randomly select new flavours
+	#determine how many slurs are needed from each flavour
+	#randomly select new slurs
+	#populate the generic hate message with freshly chosen flavourful slur
 
 
 '''
 preconditions: @param tweet is a hateful message
-postconditions: returns tweet converted to the specified flavour
+postconditions: returns tweet converted to different flavours of hate
 '''
 def reflavour(tweet):
 	flavours = determine_flavours(tweet)
