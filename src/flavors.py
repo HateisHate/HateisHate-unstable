@@ -1,6 +1,6 @@
 #!/usr/bin/python
 '''
-
+some functions for working with various hateful things
 '''
 
 
