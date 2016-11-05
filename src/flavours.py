@@ -40,17 +40,20 @@ def unflavour(tweet):
 
 
 '''
-preconditions: @param tweet is the text of an unflavoured hateful message, @param flavour is a valid hate flavour
-postconditions: returns the tweet converted to hate of the specified flavour
-				throws some exception if given flavoured hate
+preconditions: @param tweet is the text of an unflavoured hateful message
+				@param notused is (optionally) a list of 
+postconditions: returns the tweet converted to be hateful containing random slurs that are offensive to random
 '''
-def flavourize(tweet, flavour):
+def flavourize(tweet, notused=None):
 	pass #@todo implement this
 
 
 '''
-preconditions: @param tweet is a hateful message, @param flavour is a valid flavour of hate
+preconditions: @param tweet is a hateful message
 postconditions: returns tweet converted to the specified flavour
 '''
-def reflavour(tweet, flavour):
-	pass #@todo implement this
+def reflavour(tweet):
+	flavours = determine_flavours(tweet)
+	tweet = unflavour(tweet)
+	tweet = flavourize(tweet,flavours)
+	return tweet
