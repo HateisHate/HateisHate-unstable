@@ -5,6 +5,8 @@
 
 
 '''
+preconditions: @param tweet is a hateful tweet
+postconditions: returns the flavour of tweet
 '''
 def determine_flavour(tweet):
 	pass #@todo implement this

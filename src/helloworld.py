@@ -1,12 +1,12 @@
 import tweepy, time, sys
- 
+import testconfig
 argfile = str(sys.argv[1])
  
 #enter the corresponding information from your Twitter application:
-CONSUMER_KEY = 'QaOoBbqePcDo7MAPzm4TaFko6'#keep the quotes, replace this with your consumer key
-CONSUMER_SECRET = 'Mt9uDjF8BesRVcf9WRBr4jpMekfhhSIxTdSsQTeqayKpnYT8OS'#keep the quotes, replace this with your consumer secret key
-ACCESS_KEY = '794962026376335360-wb0z18a5LV6Nkg8bYbeIbeDdMXCDfAa'#keep the quotes, replace this with your access token
-ACCESS_SECRET = 'ITpsMfQdi19o6hQiWCYcxw5i1tZYpSOLacVDxx5EG3XF5'#keep the quotes, replace this with your access token secret
+CONSUMER_KEY = testconfig.CONSUMER_KEY#keep the quotes, replace this with your consumer key
+CONSUMER_SECRET = testconfig.CONSUMER_SECRET#keep the quotes, replace this with your consumer secret key
+ACCESS_KEY = testconfig.ACCESS_KEY#keep the quotes, replace this with your access token
+ACCESS_SECRET = testconfig.ACCESS_SECRET#keep the quotes, replace this with your access token secret
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
