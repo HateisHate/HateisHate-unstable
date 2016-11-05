@@ -5,16 +5,19 @@ some functions for working with various hateful things
 '''
 
 d = hatedict.dict()
-flavours = hatedict.flavours()
+f = hatedict.flavours()
 
 '''
 preconditions: @param tweet is the text of a hateful tweet
-postconditions: returns the flavour of tweet
+postconditions: returns a list of every flavour of hate contained in the tweet
 '''
-def determine_flavour(tweet): #what if there's more than one flavour?
-	for f in flavours:
-		if d[f] in tweet:
-			return f
+def determine_flavours(tweet): #what if there's more than one flavour?
+	returnme = []
+	for flavour in f:
+		for slur in d[flavour]:
+			if slur in tweet:
+				returnme.append(flavour)
+	return returnme
 
 
 '''
