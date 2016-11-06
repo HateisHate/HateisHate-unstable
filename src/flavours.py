@@ -12,13 +12,13 @@ preconditions: @param tweet is the text of a hateful tweet
 postconditions: returns a list of every flavour of hate contained in the tweet
 '''
 def determine_flavours(tweet): #what if there's more than one flavour?
-	returnme = []
+	flavours = []
 	for flavour in f:
 		for slur in d[flavour]:
 			if slur in tweet:
-				returnme.append(flavour)
-	return returnme
-
+				if flavour not in flavours:
+					flavours.append(flavour)			
+	return flavours
 
 '''
 preconditions: @param tweet is the text of a hateful message
@@ -27,7 +27,23 @@ example output:
 [{'hate_flavour_1' : 2, 'hate_flavour_2 : 1},
 "i wish all [flavour:0,slur:1] would kill all the [flavour:1,slur:0] so we'd only have [flavour:0,slur:0] left over"]
 '''
+#RUBBER FUCKIN Ducks this is the old version of unflavour 
+#BOTH DONT WORK, BUT IT TURNS OUT determine_flavours() WAS BROKEN AND I FIXED IT HAHA
 def unflavour(tweet):
+	flavours = determine_flavours(tweet)
+	print(str(flavours)+"flacass")
+	flav_i = 0
+	for flavour in flavours:
+		slur_i = 0
+		for slur in d[flavour]:
+			if slur == '': #for some reason d[flavour] had lots of empty strings
+				continue
+			tweet = tweet.replace(slur,"[flavour:{},slur:{}]".format(slur_i,flav_i))
+			slur_i = slur_i + 1
+		flav_i = flav_i + 1
+	return tweet
+
+def unflavour_(tweet):
 	flavours = determine_flavours(tweet)
 	returnme = [{i : 0 for i in flavours}]
 	flav_i = 0
