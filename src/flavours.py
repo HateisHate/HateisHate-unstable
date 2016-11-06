@@ -1,25 +1,24 @@
 #!/usr/bin/python
 import hatedict
-from random import choice
 '''
 some functions for working with various hateful things
 '''
 
 d = hatedict.dict()
-FLAVOURS = hatedict.flavours()
+f = hatedict.flavours()
 
 '''
 preconditions: @param tweet is the text of a hateful tweet
 postconditions: returns a list of every flavour of hate contained in the tweet
 '''
 def determine_flavours(tweet): #what if there's more than one flavour?
-	flavours = []
-	for flavour in FLAVOURS:
+	returnme = []
+	for flavour in f:
 		for slur in d[flavour]:
 			if slur in tweet:
-				if flavour not in flavours:
-					flavours.append(flavour)			
-	return flavours
+				returnme.append(flavour)
+	return returnme
+
 
 '''
 preconditions: @param tweet is the text of a hateful message
@@ -30,75 +29,39 @@ example output:
 '''
 def unflavour(tweet):
 	flavours = determine_flavours(tweet)
-	flavour_index = 0
-	tasteless = [{i : 0 for i in flavours}]
+	returnme = [{i : 0 for i in flavours}]
+	flav_i = 0
 	for flavour in flavours:
-		slur_index = 0
+		slur_i = 0
+		fai = False #flav_i already incremented (only want to increment it once per flavour)
 		for slur in d[flavour]:
-			if slur == '':
+			if slur == '': #for some reason d[flavour] had lots of empty strings
 				continue
 			if slur in tweet:
-				tweet = tweet.replace(slur,"<flavour:{},slur:{}>".format(flavour_index,slur_index))
-				slur_index = slur_index + 1
-		flavour_index = flavour_index + 1
-		tasteless[0][flavour] = slur_index
-	tasteless.append(tweet)
-	return tasteless
-	
-"""
-AARON READ THIS WHEN YOU WAKE UP
+				if not fai:
+					fai = True
+					flavr_i = flav_i + 1
+				slur_i = slur_i + 1
+				tweet = tweet.replace(slur,"[flavour:{},slur:{}]".format(slur_i,flav_i))
+		returnme[0][flavour] = slur_i
 
-CURRENTLY YOU NEED TO POPULATE newslurs in flavourize()
-"""
+	returnme.append(tweet)
+	return returnme
+	
+
 
 '''
-preconditions: @param tweet is an unflavoured hateful message
+preconditions: @param tweet is the text of an unflavoured hateful message
 				@param notused is (optionally) a list of 
 postconditions: returns the tweet converted to be hateful containing random slurs that are offensive to random
 '''
-def flavourize(tweet, unused_flavours=None):
+def flavourize(tweet, notused=None):
 	#determine the number of flavours which need to be used
-	if unused_flavours == None:
-		newflavs = []
-		for i in range(len(tweet[0])):
-			pick = choice(FLAVOURS)
-			while pick in newflavs:
-				pick = choice(FLAVOURS)
-			newflavs.append(pick)
-	else:
-		usable_flavours = []
-		for flavour in FLAVOURS:
-			if flavour not in unused_flavours:
-				usable_flavours.append(flavour)
-		newflavs = []
-		for i in range(len(tweet[0])):
-			pick = choice(FLAVOURS)
-			while pick in newflavs:
-				pick = choice(FLAVOURS)
-			newflavs.append(pick)
-
-
+	#randomly select new flavours
 	#determine how many slurs are needed from each flavour
-	#we already got that
-	newslurs = []
-	for i in range(len(newflavs)):
-		new_flavour = newflavs[i]
-		old_flavour = unused_flavours[i]
-		slurlist = []
-		for i in range(tweet[0][old_flavour]):
-			pick = choice(d[new_flavour])
-			while pick in slurlist:
-				pick = choice(d[new_flavour])
-			slurlist.append(pick)
-		newslurs.append(slurlist)
-	tweet = tweet[1]
-	current_flavour_id = 0
-	for i in range(len(newflavs)):
-		for n in range(len(newslurs[i])):
-			tweet = tweet.replace("<flavour:{},slur:{}>".format(i,n),newslurs[i][n])
 	#randomly select new slurs
 	#populate the generic hate message with freshly chosen flavourful slur
-	return tweet
+	pass
 
 
 '''

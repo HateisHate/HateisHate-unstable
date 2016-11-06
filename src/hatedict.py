@@ -61,10 +61,6 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 								"goyim",
 								"oven-dweller"
 				],
-			"racism_pacific" : ["generic_pacific_insult" #if this is empty we always get a false positive
-				],
-			"racism_australian" : ["kangaroo"
-				] ,
 			"racism_native_american": ["prarie nigger",
 								"savage",
 								"redskin",
@@ -85,8 +81,6 @@ FLAVOURS = ["sexism_misogyny",
 			"racism_caucasian",
 			"racism_middle-eastern",
 			"racism_antisemitism",
-			"racism_pacific",
-			"racism_australian",
 			"racism_native_american"]
 
 #returns the hatedictionary
