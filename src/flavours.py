@@ -61,7 +61,10 @@ def flavourize(tweet, unused_flavours=None):
 	if unused_flavours == None:
 		newflavs = []
 		for i in range(len(tweet[0])):
-			newflavs = choice(FLAVOURS)
+			pick = choice(FLAVOURS)
+			while pick in newflavs:
+				pick = choice(FLAVOURS)
+			newflavs.append(pick)
 	else:
 		usable_flavours = []
 		for flavour in FLAVOURS:
@@ -69,11 +72,14 @@ def flavourize(tweet, unused_flavours=None):
 				usable_flavours.append(flavour)
 		newflavs = []
 		for i in range(len(tweet[0])):
-			newflavs.append(choice(usable_flavours))
+			pick = choice(FLAVOURS)
+			while pick in newflavs:
+				pick = choice(FLAVOURS)
+			newflavs.append(pick)
 
 	print("{}{}{}".format('unused_flavours is\"',unused_flavours,'\"'))
-	print("{}{}{}".format('newflavs is\"',newflavs,'\"'))
-	print("{}{}{}".format('tweet[0] is\"',tweet[0],'\"'))
+	print("{}{}{}".format('lnewflavs is\"',newflavs,'\"'))
+	print("{}{}{}".format('ltweet[0] is\"',tweet[0],'\"'))
 	#determine how many slurs are needed from each flavour
 	#we already got that
 	newslurs = []
@@ -82,13 +88,18 @@ def flavourize(tweet, unused_flavours=None):
 		old_flavour = unused_flavours[i]
 		slurlist = []
 		for i in range(tweet[0][old_flavour]):
-			slurlist.append(choice(d[new_flavour]))
+			pick = choice(d[new_flavour])
+			while pick in slurlist:
+				pick = choice(d[new_flavour])
+			slurlist.append(pick)
 		newslurs.append(slurlist)
 	tweet = tweet[1]
 	print("{}{}{}".format('newslurs is\"',newslurs,'\"'))
 	current_flavour_id = 0
 	for i in range(len(newflavs)):
-		for n in range(len(newslurs)):
+		for n in range(len(newslurs[i])):
+			print(i,n)
+			print("i,n")
 			tweet = tweet.replace("<flavour:{},slur:{}>".format(i,n),newslurs[i][n])
 	#randomly select new slurs
 	#populate the generic hate message with freshly chosen flavourful slur
