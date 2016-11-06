@@ -23,7 +23,7 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 								"thot",
 								"shemale"
 				],
-			"sexism_heterophobia" : ["cishet"
+			"sexism_heterophobia" : ["cishet",
 								"het",
 								"vanilla",
 								"cis"
