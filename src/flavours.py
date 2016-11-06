@@ -27,42 +27,23 @@ example output:
 [{'hate_flavour_1' : 2, 'hate_flavour_2 : 1},
 "i wish all [flavour:0,slur:1] would kill all the [flavour:1,slur:0] so we'd only have [flavour:0,slur:0] left over"]
 '''
-#RUBBER FUCKIN Ducks this is the old version of unflavour 
-#BOTH DONT WORK, BUT IT TURNS OUT determine_flavours() WAS BROKEN AND I FIXED IT HAHA
 def unflavour(tweet):
 	flavours = determine_flavours(tweet)
-	print(str(flavours)+"flacass")
-	flav_i = 0
+	print("{}{}{}".format('!!!',flavours,'!!!'))
+	flavour_index = 0
+	tasteless = [{i : 0 for i in flavours}]
 	for flavour in flavours:
-		slur_i = 0
+		slur_index = 0
 		for slur in d[flavour]:
-			if slur == '': #for some reason d[flavour] had lots of empty strings
-				continue
-			tweet = tweet.replace(slur,"[flavour:{},slur:{}]".format(slur_i,flav_i))
-			slur_i = slur_i + 1
-		flav_i = flav_i + 1
-	return tweet
-
-def unflavour_(tweet):
-	flavours = determine_flavours(tweet)
-	returnme = [{i : 0 for i in flavours}]
-	flav_i = 0
-	for flavour in flavours:
-		slur_i = 0
-		fai = False #flav_i already incremented (only want to increment it once per flavour)
-		for slur in d[flavour]:
-			if slur == '': #for some reason d[flavour] had lots of empty strings
+			if slur == '':
 				continue
 			if slur in tweet:
-				if not fai:
-					fai = True
-					flavr_i = flav_i + 1
-				slur_i = slur_i + 1
-				tweet = tweet.replace(slur,"[flavour:{},slur:{}]".format(slur_i,flav_i))
-		returnme[0][flavour] = slur_i
-
-	returnme.append(tweet)
-	return returnme
+				tweet = tweet.replace(slur,"<flavour:{},slur:{}>".format(flavour_index,slur_index))
+				slur_index = slur_index + 1
+		flavour_index = flavour_index + 1
+		tasteless[0][flavour] = slur_index
+	tasteless.append(tweet)
+	return tasteless
 	
 
 
