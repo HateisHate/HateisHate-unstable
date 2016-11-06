@@ -22,20 +22,31 @@ def determine_flavours(tweet): #what if there's more than one flavour?
 
 '''
 preconditions: @param tweet is the text of a hateful message
-postconditions: returns tweet converted to unflavoured hate
+postconditions: returns a list containing the number of flavours and slurs required from each flavour along with an unflavoured hateful message
+example output:
+[{'hate_flavour_1' : 2, 'hate_flavour_2 : 1},
+"i wish all [flavour:0,slur:1] would kill all the [flavour:1,slur:0] so we'd only have [flavour:0,slur:0] left over"]
 '''
 def unflavour(tweet):
 	flavours = determine_flavours(tweet)
+	returnme = [{i : 0 for i in flavours}]
 	flav_i = 0
 	for flavour in flavours:
 		slur_i = 0
+		fai = False #flav_i already incremented (only want to increment it once per flavour)
 		for slur in d[flavour]:
 			if slur == '': #for some reason d[flavour] had lots of empty strings
 				continue
-			tweet = tweet.replace(slur,"[flavour:{},slur:{}]".format(slur_i,flav_i))
-			slur_i = slur_i + 1
-		flav_i = flav_i + 1
-	return tweet
+			if slur in tweet:
+				if not fai:
+					fai = True
+					flavr_i = flav_i + 1
+				slur_i = slur_i + 1
+				tweet = tweet.replace(slur,"[flavour:{},slur:{}]".format(slur_i,flav_i))
+		returnme[0][flavour] = slur_i
+
+	returnme.append(tweet)
+	return returnme
 	
 
 
@@ -50,6 +61,7 @@ def flavourize(tweet, notused=None):
 	#determine how many slurs are needed from each flavour
 	#randomly select new slurs
 	#populate the generic hate message with freshly chosen flavourful slur
+	pass
 
 
 '''
