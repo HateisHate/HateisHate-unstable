@@ -46,7 +46,7 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 								"winky",
 								"rice nigger"
 				],
-			"racism_african" : [#"nigger",
+			"racism_african" : ["nigger",
 								"spook",
 								"crow",
 								"monkey",#just monkey?
@@ -67,7 +67,7 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 				],
 			"racism_middle-eastern" : ["turban"
 								"towel head",
-								#"sand nigger",
+								"sand nigger",
 								"goatfucker"
 				],
 			"racism_antisemitism" : ["abe",
@@ -77,7 +77,7 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 								"goyim",
 								"oven-dweller"
 				],
-			"racism_native_american": ["prarie nigger",
+			"racism_native_american": ["#prarie nigger",
 								"savage",
 								"redskin",
 								"injun",
