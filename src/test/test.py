@@ -3,4 +3,4 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    return 'HATE IS HATE - TWITTER APP FOR HACKATHON. V.0.0.1.'
