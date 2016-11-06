@@ -77,9 +77,7 @@ def flavourize(tweet, unused_flavours=None):
 				pick = choice(FLAVOURS)
 			newflavs.append(pick)
 
-	print("{}{}{}".format('unused_flavours is\"',unused_flavours,'\"'))
-	print("{}{}{}".format('lnewflavs is\"',newflavs,'\"'))
-	print("{}{}{}".format('ltweet[0] is\"',tweet[0],'\"'))
+
 	#determine how many slurs are needed from each flavour
 	#we already got that
 	newslurs = []
@@ -94,12 +92,9 @@ def flavourize(tweet, unused_flavours=None):
 			slurlist.append(pick)
 		newslurs.append(slurlist)
 	tweet = tweet[1]
-	print("{}{}{}".format('newslurs is\"',newslurs,'\"'))
 	current_flavour_id = 0
 	for i in range(len(newflavs)):
 		for n in range(len(newslurs[i])):
-			print(i,n)
-			print("i,n")
 			tweet = tweet.replace("<flavour:{},slur:{}>".format(i,n),newslurs[i][n])
 	#randomly select new slurs
 	#populate the generic hate message with freshly chosen flavourful slur
@@ -111,9 +106,7 @@ preconditions: @param tweet is a hateful message
 postconditions: returns tweet converted to different flavours of hate
 '''
 def reflavour(tweet):
-	print('in reflavour')
 	flavours = determine_flavours(tweet)
 	tweet = unflavour(tweet)
 	tweet = flavourize(tweet,flavours)
-	print('exiting reflavour returning\"' + str(tweet) +'\"')
 	return tweet
