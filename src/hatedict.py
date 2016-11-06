@@ -8,7 +8,7 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 								"slut",
 								"whore",
 								"bitch",
-								"cunt"
+								"cunt",
 								"cumslut" #slut is in cumslut, might be redundant
 				],
 			"sexism_misandry" : ["no balls",
