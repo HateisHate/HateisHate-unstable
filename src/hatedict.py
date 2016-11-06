@@ -12,16 +12,25 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 								#"cumslut" #slut is in cumslut, might be redundant
 				],
 			"sexism_misandry" : ["no balls",
-								"pussy"
+								"pussy",
+								"dick",
+								"fuckboy",
+								"fuckboi"
 				],
-			"sexism_transphobia" : ["tranny"
+			"sexism_transphobia" : ["tranny",
+								"he-she",
+								"thot",
+								"shemale"
 				],
-			"sexism_heterophobia" : ["het",
-								"vanilla"
+			"sexism_heterophobia" : ["cishet"
+								"het",
+								"vanilla",
+								"cis"
 				],
 			"sexism_homophobia" : ["fairy",
 								"faggot",
-								"dyke"
+								"dyke",
+								"twink"
 				],
 			"racism_asain" : ["chink",
 								"squinty",
@@ -40,7 +49,8 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 								"coon",
 								"mosshead",
 								"blue gums",
-								"sausage lips"
+								"sausage lips",
+								"african't"
 				],
 			"racism_caucasian" : ["wigger",
 								"whitey",
@@ -52,7 +62,8 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 				],
 			"racism_middle-eastern" : ["turban"
 								"towel head",
-								"sand nigger"
+								"sand nigger",
+								"goatfucker"
 				],
 			"racism_antisemitism" : ["abe",
 								"big nose",
