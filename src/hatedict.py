@@ -9,13 +9,14 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 								"whore",
 								"bitch",
 								"cunt"
-								#"cumslut" #slut is in cumslut, might be redundant
+								"cumslut" #slut is in cumslut, might be redundant
 				],
 			"sexism_misandry" : ["no balls",
 								"pussy",
 								"dick",
 								"fuckboy",
-								"fuckboi"
+								"fuckboi",
+								"douchebag"
 				],
 			"sexism_transphobia" : ["tranny",
 								"he-she",
@@ -30,7 +31,10 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 			"sexism_homophobia" : ["fairy",
 								"faggot",
 								"dyke",
-								"twink"
+								"twink",
+								"queer",
+								"gay",
+								"fag"
 				],
 			"racism_asain" : ["chink",
 								"squinty",
@@ -42,15 +46,15 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 								"winky",
 								"rice nigger"
 				],
-			"racism_african" : ["nigger",
+			"racism_african" : [#"nigger",
 								"spook",
 								"crow",
-								"porch monkey",#just monkey?
+								"monkey",#just monkey?
 								"coon",
 								"mosshead",
-								"blue gums",
 								"sausage lips",
-								"african't"
+								"african't",
+								"ape"
 				],
 			"racism_caucasian" : ["wigger",
 								"whitey",
@@ -58,11 +62,12 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 								"klansman",
 								"cornfed",
 								"white bread",
-								"redneck"
+								"redneck",
+								"hick"
 				],
 			"racism_middle-eastern" : ["turban"
 								"towel head",
-								"sand nigger",
+								#"sand nigger",
 								"goatfucker"
 				],
 			"racism_antisemitism" : ["abe",
