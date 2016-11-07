@@ -16,9 +16,8 @@ def determine_flavours(tweet): #what if there's more than one flavour?
 	flavours = []
 	for flavour in FLAVOURS:
 		for slur in d[flavour]:
-			if slur in tweet:
-				if flavour not in flavours:
-					flavours.append(flavour)			
+			if slur in tweet and flavour not in flavours:
+				flavours.append(flavour)			
 	return flavours
 
 '''
@@ -37,7 +36,7 @@ def unflavour(tweet):
 		for slur in d[flavour]:
 			if slur == '':
 				continue
-			if slur in tweet:
+			elif slur in tweet:
 				tweet = tweet.replace(slur,"<flavour:{},slur:{}>".format(flavour_index,slur_index))
 				slur_index = slur_index + 1
 		flavour_index = flavour_index + 1
