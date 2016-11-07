@@ -50,7 +50,7 @@ preconditions: @param tweet is an unflavoured hateful message
 postconditions: returns the tweet converted to be hateful containing random slurs that are offensive to random
 '''
 def flavourize(tweet, unused_flavours=None):
-	#determine the number of flavours which need to be used
+	#generate a list of flavours to be used in the tweet. if the
 	if unused_flavours == None:
 		newflavs = []
 		for i in range(len(tweet[0])):
@@ -63,34 +63,40 @@ def flavourize(tweet, unused_flavours=None):
 		for flavour in FLAVOURS:
 			if flavour not in unused_flavours:
 				usable_flavours.append(flavour)
+		#this code has some logical errors.
 		newflavs = []
+		unused_usable_flavours = list(usable_flavours) #some bad and confusing variable names
 		for i in range(len(tweet[0])):
-			pick = choice(FLAVOURS)
-			while pick in newflavs:
-				pick = choice(FLAVOURS)
+			if len(unused_usable_flavours) > 0:
+				pick = choice(unused_usable_flavours)
+				while pick in newflavs: #probably should be removed
+					pick = choice(unused_usable_flavours)#probably dead code
+				unused_usable_flavours.remove(pick)
+			else:
+				pick = choice(usable_flavours)
+
 			newflavs.append(pick)
 
 
-	#determine how many slurs are needed from each flavour
-	#we already got that
+	#generate a list of slurs to be used for the freshly flavoured tweet
 	newslurs = []
 	for i in range(len(newflavs)):
 		new_flavour = newflavs[i]
-		old_flavour = unused_flavours[i]
-		slurlist = []
-		for i in range(tweet[0][old_flavour]):
+		old_flavour = unused_flavours[i] #this will crash if you call the function with out unused_flavours.
+		slurlist = []						#my code is actually so bad it's making me dizzy
+		for n in range(tweet[0][old_flavour]):
 			pick = choice(d[new_flavour])
 			while pick in slurlist:
 				pick = choice(d[new_flavour])
 			slurlist.append(pick)
 		newslurs.append(slurlist)
+
+	#give the flavourless tweet some flavour
 	tweet = tweet[1]
 	current_flavour_id = 0
 	for i in range(len(newflavs)):
 		for n in range(len(newslurs[i])):
 			tweet = tweet.replace("<flavour:{},slur:{}>".format(i,n),newslurs[i][n])
-	#randomly select new slurs
-	#populate the generic hate message with freshly chosen flavourful slur
 	return tweet
 
 
