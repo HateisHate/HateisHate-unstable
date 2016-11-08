@@ -69,8 +69,6 @@ def flavourize(tweet, unused_flavours=None):
 		for i in range(len(tweet[0])):
 			if len(unused_usable_flavours) > 0:
 				pick = choice(unused_usable_flavours)
-				while pick in newflavs: #probably should be removed
-					pick = choice(unused_usable_flavours)#probably dead code
 				unused_usable_flavours.remove(pick)
 			else:
 				pick = choice(usable_flavours)
@@ -83,10 +81,13 @@ def flavourize(tweet, unused_flavours=None):
 	for i in range(len(newflavs)):
 		new_flavour = newflavs[i]
 		old_flavour = unused_flavours[i] #this will crash if you call the function with out unused_flavours.
+		unused_slurs = list(d[new_flavour])
 		slurlist = []						#my code is actually so bad it's making me dizzy
 		for n in range(tweet[0][old_flavour]):
-			pick = choice(d[new_flavour])
-			while pick in slurlist:
+			if len(unused_slurs) > 0:
+				pick = choice(unused_slurs)
+				unused_slurs.remove(pick)
+			else:
 				pick = choice(d[new_flavour])
 			slurlist.append(pick)
 		newslurs.append(slurlist)
