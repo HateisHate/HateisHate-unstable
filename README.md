@@ -17,5 +17,6 @@ You should use @HateisHate_ when someone who fights against hate tweets somethin
 <br />
 <br />
 <b>When you should not use @HateisHate_:</b>
+<br />
 You should not use @HateisHate_ when someone is trolling.
 <!-- @TODO make this a html file, not an markdown file -->
