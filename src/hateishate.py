@@ -15,7 +15,7 @@ class StdOutListener(tweepy.StreamListener):
         replyID = status.id
         #if "t.co" in status.text:
             #gets retweeted tweet contents
-        tweet = tweetChecker.checker(status.text, status)
+        tweet = tweetchecker.checker(status.text, status)
         print("Reply text: " + tweet)
         api.update_status(tweet,replyID)	
 		
