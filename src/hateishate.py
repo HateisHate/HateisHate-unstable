@@ -1,6 +1,7 @@
 import tweepy
 import config
 import flavours
+import tweetChecker
 
 
 auth = tweepy.OAuthHandler(config.CONSUMER_KEY, config.CONSUMER_SECRET)
@@ -14,14 +15,10 @@ class StdOutListener(tweepy.StreamListener):
         print('Tweet text: ' + status.text)
         #if "t.co" in status.text:
             #gets retweeted tweet contents
+        tweet = tweetChecker.checker(status.text, status)
+        print("Reply text: " + tweet)
         replyID = status.id
-        tweet = flavours.reflavour(status.text)
-        tweet = tweet.replace('@hateishate_', '{}{}'.format('@',status.user.screen_name))
-        tweet = tweet.replace('@hateishate_', '')
-        if len(tweet) > 121:
-            tweet = '{}{}'.format(tweet[:121],'...')
-        tweet = tweet + ' #AllHateIsEqual'
-	api.update_status(tweet,replyID)	
+        api.update_status(tweet,replyID)	
 		
     def on_error(self, status_code):
         print("on_error")
