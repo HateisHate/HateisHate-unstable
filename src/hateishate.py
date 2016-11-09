@@ -1,6 +1,5 @@
 import tweepy
 import config
-import flavours
 import tweetChecker
 
 
