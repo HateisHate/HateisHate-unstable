@@ -16,9 +16,11 @@ class StdOutListener(tweepy.StreamListener):
             #gets retweeted tweet contents
         replyID = status.id
         tweet = flavours.reflavour(status.text)
-        tweet = tweet.replace('@hateishate_', '@' + status.user.screen_name)
+        tweet = tweet.replace('@hateishate_', '{}{}'.format('@',status.user.screen_name))
+        tweet = tweet.replace('@hateishate_', '')
+        if len(tweet) > 121:
+            tweet = '{}{}'.format(tweet[:121],'...')
         tweet = tweet + ' #AllHateIsEqual'
-        print(tweet)
 	api.update_status(tweet,replyID)	
 		
     def on_error(self, status_code):
