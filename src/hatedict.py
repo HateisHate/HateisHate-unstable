@@ -65,7 +65,7 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 								"redneck",
 								"hick"
 				],
-			"racism_middle-eastern" : ["turban"
+			"racism_middle-eastern" : ["turban",
 								"towel head",
 								"sand nigger",
 								"goatfucker"
