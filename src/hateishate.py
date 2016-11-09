@@ -1,7 +1,6 @@
 import tweepy
 import config
-import flavours
-import tweetChecker
+import tweetchecker
 
 
 auth = tweepy.OAuthHandler(config.CONSUMER_KEY, config.CONSUMER_SECRET)
