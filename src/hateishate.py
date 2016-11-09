@@ -13,11 +13,11 @@ class StdOutListener(tweepy.StreamListener):
     def on_status(self, status):
         # Prints the text of the tweet
         print('Tweet text: ' + status.text)
+        replyID = status.id
         #if "t.co" in status.text:
             #gets retweeted tweet contents
         tweet = tweetChecker.checker(status.text, status)
         print("Reply text: " + tweet)
-        replyID = status.id
         api.update_status(tweet,replyID)	
 		
     def on_error(self, status_code):
