@@ -1,7 +1,6 @@
 import flavours
-import mechanicalsoup
 
-def checker(tweet, status):
+def checker(tweet, status): #this is a bad function name @todo(you) give it a better name
 	tweet = flavours.reflavour(status.text)
 	tweet = tweet.replace('@hateishate_', '')
 	tweet = '{}{}'.format(status.user.screen_name,tweet)
@@ -10,15 +9,21 @@ def checker(tweet, status):
 	tweet = tweet + ' #AllHateIsEqual'
 	return(tweet)
 
-def get_retweet_text(link):
+def get_retweet_text(link, browser):
 	"""
 	preconditions:
 	link is a valid link to a tweet containing retweeted text
 
 	postconditions:
 	returns the retweeted text of the tweet
-	if link is not valid then it returns None (@todo(aaron) make it return something more useful)
-	-more useful things it might return in the future:
+	if the preconditions are not met it bad things will happen
 	--maybe it throws an exception
 	"""
-	pass
+	# if not isinstance(browser,"<class 'mechanicalsoup.browser.Browser'>"):#not sure what 2nd arg should be
+	# 	return None
+
+	#not sure how to check if link is valid, coding stuff assuming it is valid will help me find out
+	retweet = browser.get(link)
+	retweet = retweet.soup.findAll('div', class_="QuoteTweet-text")[0]
+	retweet = retweet.text
+	return retweet

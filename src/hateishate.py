@@ -1,7 +1,9 @@
 import tweepy
 import config
 import tweetchecker
+import mechanicalsoup
 
+browser = mechanicalsoup.Browser()
 
 auth = tweepy.OAuthHandler(config.CONSUMER_KEY, config.CONSUMER_SECRET)
 auth.set_access_token(config.ACCESS_KEY, config.ACCESS_SECRET)
