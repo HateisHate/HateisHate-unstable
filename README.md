@@ -1,5 +1,5 @@
-<h4> @HateisHate_ </h4>
-A twitter bot that changes the flavour of hateful tweets.
+<h2> @HateisHate_ </h2>
+<i>A twitter bot that changes the flavour of hateful tweets.</i>
 <h3>Dependencies</h3>
 <ul>
 	<li><b>python3</b> https://www.python.org/</li>
