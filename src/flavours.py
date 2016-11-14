@@ -1,18 +1,15 @@
 #!/usr/bin/python
 import hatedict
 from random import choice
-'''
-some functions for working with various hateful things
-'''
 
 d = hatedict.dict()
 FLAVOURS = hatedict.flavours()
 
-'''
-preconditions: @param tweet is the text of a hateful tweet
-postconditions: returns a list of every flavour of hate contained in the tweet
-'''
-def determine_flavours(tweet): #what if there's more than one flavour?
+def determine_flavours(tweet):
+	'''
+	preconditions: @param tweet is the text of a hateful tweet
+	postconditions: returns a list of every flavour of hate contained in the tweet
+	'''
 	flavours = []
 	for flavour in FLAVOURS:
 		for slur in d[flavour]:
@@ -20,14 +17,15 @@ def determine_flavours(tweet): #what if there's more than one flavour?
 				flavours.append(flavour)			
 	return flavours
 
-'''
-preconditions: @param tweet is the text of a hateful message
-postconditions: returns a list containing the number of flavours and slurs required from each flavour along with an unflavoured hateful message
-example output:
-[{'hate_flavour_1' : 2, 'hate_flavour_2 : 1},
-"i wish all [flavour:0,slur:1] would kill all the [flavour:1,slur:0] so we'd only have [flavour:0,slur:0] left over"]
-'''
+
 def unflavour(tweet):
+	'''
+	preconditions: @param tweet is the text of a hateful message
+	postconditions: returns a list containing the number of flavours and slurs required from each flavour along with an unflavoured hateful message
+	example output:
+	[{'hate_flavour_1' : 2, 'hate_flavour_2 : 1},
+	"i wish all [flavour:0,slur:1] would kill all the [flavour:1,slur:0] so we'd only have [flavour:0,slur:0] left over"]
+	'''
 	flavours = determine_flavours(tweet)
 	flavour_index = 0
 	tasteless = [{i : 0 for i in flavours}]
@@ -44,12 +42,13 @@ def unflavour(tweet):
 	tasteless.append(tweet)
 	return tasteless
 
-'''
-preconditions: @param tweet is an unflavoured hateful message
-				@param notused is (optionally) a list of 
-postconditions: returns the tweet converted to be hateful containing random slurs that are offensive to random
-'''
+
 def flavourize(tweet, unused_flavours=None):
+	'''
+	preconditions: @param tweet is an unflavoured hateful message
+					@param notused is (optionally) a list of 
+	postconditions: returns the tweet converted to be hateful containing random slurs that are offensive to random
+	'''
 	#generate a list of flavours to be used in the tweet. if the
 	if unused_flavours == None:
 		newflavs = []
@@ -101,11 +100,12 @@ def flavourize(tweet, unused_flavours=None):
 	return tweet
 
 
-'''
-preconditions: @param tweet is a hateful message
-postconditions: returns tweet converted to different flavours of hate
-'''
+
 def reflavour(tweet):
+	'''
+	preconditions: @param tweet is a hateful message
+	postconditions: returns tweet converted to different flavours of hate
+	'''
 	flavours = determine_flavours(tweet)
 	tweet = unflavour(tweet)
 	tweet = flavourize(tweet,flavours)
