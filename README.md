@@ -5,6 +5,7 @@ A twitter bot that changes the flavour of hateful tweets.
 	<li><b>python3</b> https://www.python.org/</li>
 	<li><b>tweepy</b> http://www.tweepy.org/</li>
 	<li><b>flask</b> http://flask.pocoo.org/</li>
+	<li><b>mechanicalsoup</b> https://github.com/hickford/MechanicalSoup</li>
 </ul>
 <b>How to use @HateisHate_: (currently)</b><br />
 You use @HateisHate_ by tweeting to it, then it very quickly responds swapping some key words.<br />
