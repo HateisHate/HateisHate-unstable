@@ -4,5 +4,3 @@ src/aaron_testing.py
 src/__pycache__
 *.pyc
 bark_api_token
-src/config.py
-src/config.py
