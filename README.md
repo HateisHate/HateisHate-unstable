@@ -9,6 +9,7 @@
 </ul>
 <b>How to use @HateisHate_: (currently)</b><br />
 You use @HateisHate_ by tweeting to it, then it very quickly responds swapping some key words.<br />
+<br />
 <b>When you should use @HateisHate_:</b>
 <br />
 You should use @HateisHate_ when someone who fights against hate tweets something hateful. @HateisHate_ shows them that their personal brand of hate is no better than the hate they are trying to fight against.
