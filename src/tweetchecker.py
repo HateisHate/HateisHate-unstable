@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import flavours
 
 def checker(tweet, status): #this is a bad function name @todo(you) give it a better name

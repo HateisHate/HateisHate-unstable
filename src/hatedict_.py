@@ -1,10 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 '''
 Don't call people any of these words, it's not nice.
 This list is incomplete, contributions are welcome.
 '''
 
-HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right, could also refer to hispanics
+SLURDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right, could also refer to hispanics
 								"slut",
 								"whore",
 								"bitch",
