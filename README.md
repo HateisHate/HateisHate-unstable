@@ -6,6 +6,7 @@
 	<li><b>tweepy</b> http://www.tweepy.org/</li>
 	<li><b>flask</b> http://flask.pocoo.org/</li>
 	<li><b>mechanicalsoup</b> https://github.com/hickford/MechanicalSoup</li>
+	<li><b>NLTK</b> http://www.nltk.org/</li>
 </ul>
 <b>How to use @HateisHate_: (currently)</b><br />
 You use @HateisHate_ by tweeting to it, then it very quickly responds swapping some key words.<br />
