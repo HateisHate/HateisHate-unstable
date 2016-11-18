@@ -98,3 +98,12 @@ FLAVOURS = ["sexism_misogyny",
 			"racism_middle-eastern",
 			"racism_antisemitism",
 			"racism_native_american"]
+
+
+def slurdict():
+	'''returns the slurdict'''
+	return SLURDICT
+
+def flavours():
+	'''returns a list of flavours in the hatedict'''
+	return FLAVOURS
