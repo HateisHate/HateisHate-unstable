@@ -1,0 +1,22 @@
+import tweepy
+
+class TweetStreamListener(tweepy.StreamListener):
+    ''' Handles data received from the stream. '''
+    def on_status(self, status):
+        # Prints the text of the tweet
+        print('Tweet text: ' + status.text)
+        replyID = status.id
+        #if "t.co" in status.text:
+            #gets retweeted tweet contents
+        tweet = tweetchecker.replace_mention(status.text, status)
+        print("Reply text: " + tweet)
+        api.update_status(tweet,replyID)	
+		
+    def on_error(self, status_code):
+        print("on_error")
+        print('Got an error with status code: ' + str(status_code))
+        return True # To continue listening
+ 
+    def on_timeout(self):
+        print('Timeout...')
+        return True # To continue listening

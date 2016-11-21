@@ -44,16 +44,16 @@ import tweetchecker
 class BullyRanger:
 	def __init__(self, loadfile, BARK_TOKEN):
 		f = open(loadfile)
-		wRiTe_A_bEtTeR_vArNaMe = f.read()
+		rangerdb = f.read()
 		f.close()
-		dmdb = ['dmdb'] #dmdb stands for Direct Message Database
-		last_unprocessed_dm = ['last_unprocessed_dm']
-		DEFAULT_REPUATION = None #how does reputation work?
+		dmdb = rangerdb['dmdb'] #dmdb stands for Direct Message Database
+		last_unprocessed_dm = rangerdb['last_unprocessed_dm']
+		DEFAULT_REPUATION = 100 #how does reputation work?
 		ENTRY_TEMPLATE = {"bully" : None, "reputation" : DEFAULT_REPUATION, "dmid" : None}
 
 	def run():
 		#get a stream of dms
-			#process the dms
+			#process the dms (tweetchecker.appraise_bully_message())
 				#check for people reporting cyberbullies
 					#people are going to report it differently	
 						#enforce a syntax (safe option, no chance for misfies)
@@ -64,3 +64,6 @@ class BullyRanger:
 				#if not hateful tweet improve reputation
 		#repeat
 		pass
+
+#NOTE TO SELF: YOU RAN "$ git stash" SO THAT YOU COULD PUSH CHANGES TO MASTER AND THE OTHER SHITTY BRANCH
+#WTF DID YOU DO?
