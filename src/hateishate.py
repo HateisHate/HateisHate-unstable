@@ -10,15 +10,12 @@ sampleValue = 0
 class StdOutListener(tweepy.StreamListener):
     ''' Handles data received from the stream. '''
     def on_status(self, status):
-        # Prints the text of the tweet
-        print('Tweet text: ' + status.text)
-        replyID = status.id
-        #if "t.co" in status.text:
-            #gets retweeted tweet contents
-        tweet = tweetchecker.checker(status.text, status)
-        print("Reply text: " + tweet)
-        api.update_status(tweet,replyID)	
-		
+        parent_id = status.in_reply_to_status_id
+        parent_status = api.get_status(parent_id)
+        tweet_text = tweetchecker.checker(parent_statuss)
+        api.update_status(tweet_text, parent_id)
+
+
     def on_error(self, status_code):
         print("on_error")
         print('Got an error with status code: ' + str(status_code))

@@ -1,10 +1,12 @@
 import flavours
 
-def checker(tweet, status): #this is a bad function name @todo(you) give it a better name
+def checker(status): #this is a bad function name @todo(you) give it a better name
+	hashtag = "#HateisHate"
+	maximum = 140 - (len(hashtag) + 4)
+
 	tweet = flavours.reflavour(status.text)
-	tweet = tweet.replace('@hateishate_', '')
-	tweet = '@{}{}'.format(status.user.screen_name,tweet)
-	if len(tweet) > 121:
-		tweet = '{}{}'.format(tweet[:121],'...')
-	tweet = tweet + ' #AllHateIsEqual'
+	if len(tweet) > maximum:
+		tweet = '{}{}'.format(tweet[:maximum],'...')
+	tweet = tweet + ' '
+	tweet = "{}{}".format(tweet,"#HateisHate")
 	return(tweet)
