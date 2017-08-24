@@ -1,9 +1,7 @@
 import tweepy
+
 import config
 import tweetchecker
-import mechanicalsoup
-
-browser = mechanicalsoup.Browser()
 
 auth = tweepy.OAuthHandler(config.CONSUMER_KEY, config.CONSUMER_SECRET)
 auth.set_access_token(config.ACCESS_KEY, config.ACCESS_SECRET)
@@ -25,11 +23,12 @@ class StdOutListener(tweepy.StreamListener):
         print("on_error")
         print('Got an error with status code: ' + str(status_code))
         return True # To continue listening
- 
+
+
     def on_timeout(self):
         print('Timeout...')
         return True # To continue listening
-		
+
 if __name__ == '__main__':
 	listener = StdOutListener()
 	print("ping!")

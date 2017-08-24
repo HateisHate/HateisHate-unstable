@@ -1,9 +1,8 @@
-#!/usr/bin/python
 import hatedict
 from random import choice
 
 d = hatedict.dict()
-FLAVOURS = hatedict.flavours()
+FLAVOURS = d.keys()
 
 def determine_flavours(tweet):
 	'''
@@ -14,7 +13,7 @@ def determine_flavours(tweet):
 	for flavour in FLAVOURS:
 		for slur in d[flavour]:
 			if slur in tweet and flavour not in flavours:
-				flavours.append(flavour)			
+				flavours.append(flavour)
 	return flavours
 
 
@@ -46,10 +45,11 @@ def unflavour(tweet):
 def flavourize(tweet, unused_flavours=None):
 	'''
 	preconditions: @param tweet is an unflavoured hateful message
-					@param notused is (optionally) a list of 
+					@param notused is (optionally) a list of
 	postconditions: returns the tweet converted to be hateful containing random slurs that are offensive to random
 	'''
 	#generate a list of flavours to be used in the tweet. if the
+	#i regret not writing the text that comes after "if the" in that comment...
 	if unused_flavours == None:
 		newflavs = []
 		for i in range(len(tweet[0])):
@@ -63,6 +63,7 @@ def flavourize(tweet, unused_flavours=None):
 			if flavour not in unused_flavours:
 				usable_flavours.append(flavour)
 		#this code has some logical errors.
+		#WHICH CODE?!
 		newflavs = []
 		unused_usable_flavours = list(usable_flavours) #some bad and confusing variable names
 		for i in range(len(tweet[0])):

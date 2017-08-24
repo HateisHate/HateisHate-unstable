@@ -84,20 +84,9 @@ HATEDICT = {"sexism_misogyny" : ["maid", #this one will be difficult to do right
 								"half-breed",#use a . for regex?
 								"chug"
 				]
-	
+
 }
 
-FLAVOURS = ["sexism_misogyny",
-			"sexism_misandry",
-			"sexism_transphobia",
-			"sexism_heterophobia",
-			"sexism_homophobia",
-			"racism_asain",
-			"racism_african",
-			"racism_caucasian",
-			"racism_middle-eastern",
-			"racism_antisemitism",
-			"racism_native_american"]
 
 #returns the hatedictionary
 def dict():
