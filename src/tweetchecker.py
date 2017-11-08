@@ -2,7 +2,7 @@ import flavours
 
 def checker(status): #this is a bad function name @todo(you) give it a better name
 	hashtag = "#HateisHate"
-	maximum = 140 - (len(hashtag) + 4)
+	maximum = 240 - (len(hashtag) + 4) #the 4 is a magic number, idk what it's for...
 
 	tweet = flavours.reflavour(status.text)
 	if len(tweet) > maximum:
